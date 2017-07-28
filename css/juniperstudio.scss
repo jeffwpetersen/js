@@ -1,0 +1,350 @@
+---
+---
+
+@import "base";
+@import "structure";
+
+html {
+  box-sizing: border-box !important;
+  background-color: #000000;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  font-size: 14px;
+  line-height: 24px;
+  font-family: $opensans;
+  display: block;
+  height: 100%;
+}
+
+.outerspace {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 100vh; //Sticky footer: padding is footer height
+  background-color: #ffffff;
+  @include breakpoint($phone) {
+    padding-bottom: 100vh;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $theme-color;
+}
+
+p {
+  @include plumber(
+          $leading-bottom: 2
+  );
+}
+
+h1 {
+  @include plumber(
+          $font-size: 2.25,
+          $line-height: 2,
+          $leading-top: 0,
+          $leading-bottom: 0
+  );
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: 1.75,
+            $line-height: 2,
+            $leading-top: 0
+    );
+    padding-top: 15px;
+  }
+}
+
+h2 {
+  @include plumber(
+          $font-size: 1.45,
+          $line-height: 2,
+          $leading-top: 0,
+          $leading-bottom: 0
+  );
+  color: $gray-5;
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: 1.15,
+            $line-height: 2,
+            $leading-bottom: 0
+    );
+    padding-top: 15px;
+  }
+}
+
+h3 {
+  @include plumber(
+          $font-size: 1,
+          $leading-top: 1,
+          $leading-bottom: 1
+  );
+  color: black;
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: .75
+    );
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+code {
+  @include plumber(
+          $font-size: .75,
+          $line-height: 1,
+          $leading-top: 0,
+          $leading-bottom: 0
+  );
+}
+
+
+
+/*
+* Theme
+*/
+
+h1.hero {
+  margin: 0px !important;
+  padding: 0px;
+  border-bottom: solid 1px $theme-color;
+  color: $gray-1;
+  @include plumber(
+          $font-size: 4.75,
+          $line-height: 3
+  );
+  color: $gray-3;
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: 3.25,
+            $line-height: 2
+    );
+    padding-top: 15px;
+  }
+}
+
+.double-space {
+  @include plumber(
+          $font-size: 1,
+          $line-height: 2,
+          $leading-top: 1,
+          $leading-bottom: -1
+  );
+}
+
+.triple-space {
+  @include plumber(
+          $font-size: 2.25,
+          $line-height: 3,
+          $leading-bottom: 0,
+          $leading-top: 0
+  );
+  @include breakpoint($phone) {
+    @include plumber(
+            $font-size: 1.75,
+            $line-height: 2,
+            $leading-bottom: 1,
+            $leading-top: 0
+    );
+  }
+}
+
+.brand-statment {
+  color: $gray-5;
+  margin-bottom: 48px;
+}
+
+.space {
+  height: $base-line-height;
+}
+
+.title {
+  background-color: black;
+  h1 {
+    color: $gray-9;
+    a {
+      color: #ffffff;
+    }
+  }
+}
+
+.half-space p {
+  @include plumber(
+          $font-size: 1,
+          $line-height: 1,
+          $leading-top: 0,
+          $leading-bottom: 1
+  );
+  line-height: 35px;
+  padding-top: 21px;
+}
+
+.contact-us {
+
+  @include breakpoint($phone) {
+    display: block;
+    width: 100%;
+    padding: $base-line-height;
+    margin: $base-line-height 0;
+    background-color: $theme-color;
+    color: white;
+    text-align: center;
+    a {
+      color: White;
+    }
+
+  }
+
+}
+
+.footer-contact-us {
+  width: 100%;
+  text-align: center !important;
+  @include plumber(
+          $font-size: 1,
+          $line-height: 2
+  );
+  a {
+    color: White;
+  }
+}
+
+.hidden {
+  display: block;
+  font-size: 2px !important;
+  color: $theme-color;
+  position: absolute;
+  border: solid;
+  top: 0px;
+  z-index: -10;
+  a {
+    color: $theme-color;
+    font-size: 1px !important;
+  }
+}
+
+.photography_portfolio_image {
+  position: relative;
+  img {
+    width: 100% !important;
+    display: block;
+  }
+  .photography_statment {
+    position: absolute;
+    top: 0px;
+    max-width: 600px;
+  }
+  h3 {
+    background-color: $pink;
+    margin-top: 0px;
+    padding-top: $base-line-height;
+    padding-left: $base-line-height;
+  }
+}
+
+ul.menu {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  li {
+    float: right;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    display: inline;
+    padding-left: $margin;
+  }
+}
+
+.kclibrary {
+  background-color: #337ab4;
+  padding-top: $base-line-height * 2;
+  padding-bottom: 96px;
+  min-height: 100vh;
+  background-image: url("/images/kclibrary_icons.png");
+  background-position: center bottom;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: right 0 bottom -100px;
+  .lib-content {
+    @include span(12 of 18);
+    @include push(3);
+    @include breakpoint($phone) {
+      @include span(18 of 18);
+    }
+  }
+  h1 {
+    letter-spacing: 12px;
+  }
+}
+
+.compost-hero {
+  margin-top: $base-line-height * 2;
+  padding-top: $base-line-height * 2;
+  padding-bottom: 96px;
+  background-color: #86b622;
+  min-height: 100vh;
+  background-image: url("/images/sun-graphic-compost-hero-full.png");
+  background-position: center bottom;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.white-content {
+  background-color: #FFFFFF;
+}
+
+.blog-menu {
+  list-style: none;
+  align-items: stretch;
+  padding-left: 0px;
+  margin-top: 0px;
+
+}
+
+.blog-post {
+  list-style: none;
+  margin-top: $base-line-height;
+}
+
+.padme {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pager {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 15vh;
+  text-align: center;
+  img {
+  }
+  .arrow {
+    background-color: $pink;
+    display: block;
+    border-radius: 55px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 5vh;
+    padding: 5px;
+    span {
+      background-color: $pink;
+      border: solid 4px white;
+      display: block;
+      border-radius: 50px;
+      width: 90px;
+      margin-left: auto;
+      margin-right: 5vh;
+      padding: $base-line-height;
+    }
+  }
+}

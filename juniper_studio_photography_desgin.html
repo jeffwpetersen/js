@@ -1,0 +1,31 @@
+---
+layout: default
+title: "Photography + Fine Art"
+permalink: juniper_studio_photography_desgin.html
+---
+
+<!--
+<div class="photography_portfolio_image">
+    <div class="photography_statment"><h2>Good design is a visual joy. Many times our inspiration comes from the visual
+        world. Feel free to use any of our images. Juniper Studio Photography.</h2></div>
+    {% for image in site.static_files %}
+    {% if image.path contains 'images/juniper_studio_photography_design' %}
+    <img class="lazyload" data-src="{{ site.baseurl }}{{ image.path }}" alt="image"/>
+
+    {% endif %}
+    {% endfor %}
+</div>
+-->
+
+
+
+
+<article class="photography_portfolio_image">
+    {% for photo_item in site.data.photos-list %}
+    <div class="image"><img title="{{ photo_item.title }}" src="/images/juniper_studio_photography_design/{{ photo_item.image }}">
+        <div class="caption">{{ photo_item.caption }}</div>
+    </div>
+    <div class="title"><h3>{{ photo_item.title }}</h3></div>
+    {% endfor %}
+</article>
+<hr>

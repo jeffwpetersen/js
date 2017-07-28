@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+ruby RUBY_VERSION
+
+# This will help ensure the proper Jekyll version is running.
+# Happy Jekylling!
+gem "breakpoint"
+gem "jekyll"
+gem "sass"
+gem "susy"
+gem "rouge"
+gem "jekyll-sitemap"
+gem "jekyll-paginate"
+# gem "jekyll-gallery-generator"
+# gem 'rmagick'

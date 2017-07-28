@@ -1,0 +1,183 @@
+@import "base";
+
+
+/*
+* Structure
+*/
+
+nav {
+  @include container();
+  height: $base-line-height;
+  background-color: $gray-2;
+  position: relative;
+  z-index: 100;
+  min-height: $margin;
+}
+
+header {
+
+}
+
+main {
+ min-height: 100vh;
+}
+
+section {
+  position: relative;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: $theme-color;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clear: both;
+  min-height: 100vh;
+  color: white;
+}
+
+/*
+* Layout
+*/
+
+.container {
+  @include container();
+  @include breakpoint($phone) {
+    padding-left: $base-line-height / 2;
+    padding-right: $base-line-height / 2;
+  }
+  @include breakpoint($desktop) {
+    padding-left: $base-line-height;
+    padding-right: $base-line-height;
+  }
+}
+
+.one-column {
+  @include span(18 of 18);
+  clear: both;
+  @include breakpoint($phone) {
+  }
+}
+
+.two-column {
+  overflow: hidden;
+}
+
+@include breakpoint($desktop) {
+
+  .two-column main {
+    @include span(12 of 18);
+
+  }
+  .two-column aside {
+    @include span(6 of 18 last);
+    background-color: $theme-tint;
+    margin-top: $margin;
+    padding-bottom: 999999px;
+    margin-bottom: -999999px;
+    a {
+      color: white;
+      &:hover {
+        color: white;
+      }
+    }
+    &:hover {
+      background-color: black;
+      a {
+        color: $theme-color;
+      }
+    }
+  }
+
+}
+
+
+/*
+* Grids
+*/
+
+@include with-layout($shitbird) {
+}
+
+@include breakpoint($phone) {
+  .grid-of-3 {
+    .grid-item {
+      clear: both !important;
+      @include span(18 of 18);
+    }
+    .grid-item:nth-child(3n+3) {
+      @include span(18 of 18);
+      border-top: solid 1px $pink;
+      margin-top: $base-line-height;
+      padding-top: $base-line-height;
+      padding-bottom: $base-line-height;
+    }
+  }
+
+  .grid-of-2 {
+    .grid-item {
+      clear: both !important;
+      @include gallery(18 of 18);
+    }
+  }
+
+}
+
+@include breakpoint($tween) {
+  .grid-of-3 {
+    .grid-item {
+      @include gallery(9 of 18);
+    }
+    .grid-item:nth-child(3n+3) {
+      width: 100%;
+      clear: both;
+      border-top: solid 1px $pink;
+      margin-top: $base-line-height;
+      padding-top: $base-line-height;
+      padding-bottom: $base-line-height;
+    }
+  }
+
+  .grid-of-2 {
+    .grid-item {
+      clear: both !important;
+      @include gallery(18 of 18);
+    }
+  }
+
+}
+
+
+
+@include breakpoint($desktop) {
+  .grid-of-3 {
+    .grid-item {
+      @include gallery(6 of 18);
+    }
+  }
+  .grid-of-2 {
+    .grid-item {
+      @include gallery(8 of 18);
+    }
+  }
+}
+
+@include breakpoint($big) {
+  .grid-of-3 {
+    .grid-item {
+      @include gallery(6 of 18);
+    }
+  }
+  .grid-of-2 {
+    .grid-item {
+      @include gallery(9 of 18);
+    }
+  }
+}

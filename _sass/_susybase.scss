@@ -1,0 +1,27 @@
+@import "susy";
+
+$susy: (
+        columns: 18,
+        gutters: .74,
+        gutter-position:split,
+        container: 2304px,
+        debug: (
+                image: false,
+                color: rgba(#333, .1),
+                output: background,
+                toggle: top right,
+        ),
+        use-custom: (
+                background-image: false,
+                background-options: false,
+                box-sizing: true,
+                clearfix: false,
+                rem: true,
+        )
+);
+$shitbird: (
+        columns: 1,
+        gutters: .10,
+        gutter-position:split,
+        container: 2304px,
+)
