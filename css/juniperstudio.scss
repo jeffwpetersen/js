@@ -34,6 +34,9 @@ html, body {
 a {
   text-decoration: none;
   color: $theme-color;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 p {
@@ -161,6 +164,18 @@ h1.hero {
   margin-bottom: 48px;
 }
 
+.project-folder {
+  font-family: lato !important;
+  @include plumber(
+          $font-size: .75,
+          $line-height: 1,
+          $leading-top: 0,
+          $leading-bottom: 0,
+          $grid-height: 1rem,
+          $baseline: 0.100000
+  );
+}
+
 .space {
   height: $base-line-height;
 }
@@ -254,11 +269,19 @@ ul.menu {
   margin-bottom: 0px;
   li {
     float: right;
-    padding: 0px;
     margin: 0px;
     list-style-type: none;
     display: inline;
-    padding-left: $margin;
+    padding: 0 $margin / 2;
+    text-transform: uppercase;
+    font-family: "Open Sans";
+    font-weight: 100;
+    letter-spacing: .1em;
+    border-left: solid 1px gray;
+    a {
+      font-size: 13px !important;
+      font-weight: bold;
+    }
   }
 }
 

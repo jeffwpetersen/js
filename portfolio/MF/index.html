@@ -1,0 +1,991 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="height=480; width=600; initial-scale=1; maximum-scale=1.5; minimum-scale=.1" />
+<title>MORGENTHAL FREDERICS: Luxury Eyewear | Designer Eyeglasses | High End Optical Frames</title>
+<meta name="description" content="Morgenthal Fredrics has been creating high end designer optical eyewear, eyeglasses, sunglasses and frames for 25 years.  Each handcrafted piece melds superlative quality and classic design with the finest materials, including titanium, wood, and the company's signature authentic buffalo horn frames. Morgenthal Frederics retail eye wear stores are located across the United States."/>
+<meta name="keywords" content="eyewear, eyeglasses, frames, optical, sunglasses, eye glasses, glasses, new york eyeglass stores, new york city eyeglass stores, titanium, buffalo horn, luxury, iconic, designer, high quality, best eyeglasses, best frames, optical lenses, opticians, where to buy morgenthal frederics eyeglasses, morgenthal frederics, morganthal fredericks">
+<META NAME="subject" content="Morgenthal Frederics high end designer eyewear, eyeglasses and sunglasses">
+<meta name="Classification" content="Designer eyeglasses, sunglasses, glasses, frames">
+<meta name="author" content="morgenthalfrederics.com">
+<meta name="Geography" content="United States">
+<meta name="Language" content="English">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="PUBLIC">
+<meta name="Copyright" content="morgenthalfrederics.com">
+<meta name="Publisher" content="morgenthalfrederics.com">
+<meta name="rating" content="general">
+<meta name="revisit-after" content="15 Days">
+<meta name="expires" content="never">
+<meta name="distribution" content="global">
+<meta name="robots" content="index">
+<script src='js/mootools.js' type='text/javascript'></script>
+<script type="text/javascript">
+window.addEvent('load',function() {
+	//splash page
+
+	time_fade = 2000 
+	
+	fadeinFx = new Fx.Tween('fadein', {
+				property: 'opacity',
+				duration: 2000, 
+				transition: Fx.Transitions.Quart.easeInOut
+			});
+			
+	setTimeout( function(){
+		  fadeinFx.start(0);
+		  }, time_fade );
+	
+	
+});	
+
+
+window.addEvent('domready',function() {
+	if (window.location.search == '?Q') { 
+	var time_fade = 0;
+	$('fadein').set('opacity', 0);
+	}
+	/* settings */
+	var showDuration = 8000;
+	var container = $('slideshow-container');
+	var images = container.getElements('img');
+	var currentIndex = 0;
+	var interval;
+	var toc = [];
+	var tocActive = 'toc-active';
+	var thumbOpacity = 0.4;
+	
+
+	
+	/* new: starts the slide show */
+	var start = function() { interval = show.periodical(showDuration); };
+	var stop = function() { $clear(interval); };
+	/* worker */
+	
+	var show = function(to) {
+		images[currentIndex].fade('out');
+		toc[currentIndex].removeClass(tocActive).fade(thumbOpacity);
+		images[currentIndex = ($defined(to) ? to : (currentIndex < images.length - 1 ? currentIndex+1 : 0))].fade('in');
+		toc[currentIndex].addClass(tocActive).fade(1);
+				/* parse caption */
+				var title = '';
+				var captionText = '';
+				var thumbpositionFx = new Fx.Tween('slideshow-container-controls', {
+				property: 'left',
+				duration: 800, 
+				transition: Fx.Transitions.Quart.easeInOut
+				});
+				var knobpositionFx = new Fx.Tween('myknob', {
+				property: 'left',
+				duration: 800, 
+				transition: Fx.Transitions.Quart.easeInOut
+				});
+				if(images[currentIndex].get('alt')) {
+					cap = images[currentIndex].get('alt').split('::');
+					title = cap[0];
+					captionText = cap[1];
+					$('captions').set('html','<h3>' + title + '</h3>' + (captionText ? '<p>' + captionText + '</p>' : ''));
+					var position = currentIndex;
+					//thumbpositionFx.start((-42*position)); //half of thumbnail width
+					if (position == 0) { adjust = 0 } else {var adjust = 13;} //shift half of knob width - thumbnail width
+					//knobpositionFx.start((42*position) -adjust);
+				}			
+	};
+	
+	
+	
+	/* new: create preview area */
+	var preview = new Element('div',{
+		id: 'slideshow-container-controls'
+	}).inject('slide_thumbnails','before');
+	
+	/* new: control: table of contents */
+	images.each(function(img,i){
+		/* add to table of contents */
+		toc.push(new Element('img',{
+			src: img.get('src'),
+			//title: img.get('alt'),
+			styles: {
+				opacity: thumbOpacity
+			},
+			events: {
+				click: function(e) {
+					if(e) e.stop();
+					stop();
+					show(i);
+					start();				
+				},
+				mouseenter: function() {
+					this.fade(1);
+				},
+				mouseleave: function() {
+					if(!this.hasClass(tocActive)) this.fade(thumbOpacity);
+				}
+			}	
+		}).inject(preview));
+		if(i > 0) { img.set('opacity',0); }
+		
+	});
+	
+		var el = $('myElement'),
+		controller = $('slideshow-container-controls');
+	
+	// Create the new slider instance
+	new Slider(el, el.getElement('.knob'), {
+		steps: 150,	// There are 35 steps
+		range: [0, 2100],	// width of thumbnails - width of slider bar
+		onChange: function(value){
+			// Everytime the value changes, we change the font of an element
+			controller.setStyle('left', -value);
+		}
+	})
+	
+	/* start once the page is finished loading */
+	window.addEvent('domready',function(){ show(0); start(); 
+			
+			$('location_state').set('opacity', 0);
+			$('location_state').set('visibility', 'visible');
+			
+			aboutFx = new Fx.Tween('menu_block', {
+				property: 'top',
+				duration: 1500, 
+				transition: Fx.Transitions.Quart.easeInOut
+			});
+			
+			listFx = new Fx.Tween('content_list', {
+				property: 'top',
+				duration: 1500, 
+				transition: Fx.Transitions.Quart.easeInOut
+			});
+			
+			contactFx = new Fx.Tween('contact', {
+				property: 'top',
+				duration: 1500, 
+				transition: Fx.Transitions.Quart.easeInOut
+			});
+			
+			stateFx = new Fx.Tween('state_box', {
+				property: 'height',
+				duration: 1000, 
+				transition: Fx.Transitions.Quart.easeInOut
+			});
+			
+			location_stateFx = new Fx.Tween('location_state', {
+				property: 'opacity',
+				duration: 500, 
+				transition: Fx.Transitions.Quart.easeInOut
+			});		 
+			
+			$('container').addEvent('mousedown', function(){
+			aboutFx.start(-700);
+			listFx.start(-420);
+			location_stateFx.start(0);
+			contactFx.start(-260);
+
+			});									 
+													 
+			
+			$('about').addEvent('mousedown', function(){
+				aboutFx.start(-100);
+				location_stateFx.start(0);
+				});
+			
+			$('list').addEvent('mousedown', function(){
+				listFx.start(0); 
+			});
+			
+			$('contact_us').addEvent('mousedown', function(){
+				contactFx.start(0); 
+			});
+			
+			$('content_list').addEvent('mousedown', function(){
+				listFx.start(0); 
+			});
+			
+			
+			
+					
+			$('locations').addEvent('mousedown', function(){
+				stateFx.start(500);				
+			});
+			
+			$('location_state').addEvent('mousedown', function(){
+				location_stateFx.start(.99);				
+			});
+			
+			$('locations').addEvent('mouseover', function(){
+				$('state_box').set('opacity', 1);	
+			});
+			
+			$('facebook').addEvent('mouseover', function(){
+				$('facebook').set('opacity', .5);	
+			});
+			
+			$('facebook').addEvent('mouseout', function(){
+				$('facebook').set('opacity', 1);	
+			});
+			
+			
+			
+			$$('.state').addEvent('mousedown', function(){
+				var stateid = this.getAttribute('id');
+				switch(stateid){
+case'SMF': var statetable = 'MORGENTHAL FREDERICS BOUTIQUES<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>MORGENTHAL FREDERICS</b><br />699 Madison Ave.<br />New York, NY 10065<br /><tel>212-838-3090</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=MORGENTHAL+FREDERICS&sll=40.765665,-73.969671&sspn=0.002409,0.003819&ie=UTF8&t=h&rq=1&ev=zi&radius=0.12&split=1&hq=MORGENTHAL+FREDERICS&hnear=&ll=40.765665,-73.969671&spn=0.002409,0.003819&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />944 Madison Ave.<br />New York, NY 10021<br /><tel>212-744-9444</tel>| <a href ="http://maps.google.com/maps?client=safari&oe=UTF-8&ie=UTF8&q=MORGENTHAL+FREDERICS+944+Madison+Ave.+New+York,+NY+10021&fb=1&gl=us&hq=MORGENTHAL+FREDERICS&hnear=944+Madison+Ave,+New+York,+NY+10021&cid=0,0,12259303959747176608&ei=HEPkTIT4FJO-sAOryORm&oi=local_result&ved=0CBoQnwIwAA&t=h&z=16&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />399 W. Broadway<br />New York, NY 10012<br /><tel>212-966-0099</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%09%09399+W.+Broadway%09+New+York,+NY+10012&sll=40.765665,-73.969671&sspn=0.002409,0.003819&ie=UTF8&hq=MORGENTHAL+FREDERICS+399+W.+Broadway&hnear=New+York+10012&ll=40.724287,-74.002034&spn=0.002411,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />THE SHOPS AT COLUMBUS CIRCLE<br />10 Columbus Circle<br />New York, NY 10019<br /><tel>212-956-6402</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%09THE+SHOPS+AT+COLUMBUS+CIRCLE%0910+Columbus+Circle%09+New+York,+NY+10019&sll=40.724287,-74.002034&sspn=0.002411,0.003819&ie=UTF8&hq=MORGENTHAL+FREDERICS+THE+SHOPS+AT+COLUMBUS+CIRCLE+10&hnear=Columbus+Circle,+West+58th+Street,+New+York,+10019&ll=40.767891,-73.982341&spn=0.004818,0.007639&t=h&z=17&iwloc=A" target="_blank">map</a><br /></td></tr><tr><td><b>MORGENTHAL FREDERICS</b><br />AMERICANA MANHASSET<br />2110-H Northern Blvd.<br />Manhasset, NY 11030<br /><tel>516-627-6620</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%092110+Northern+Blvd.%09+Manhasset,+NY+11030&sll=40.760124,-73.836223&sspn=0.308417,0.488892&ie=UTF8&hq=MORGENTHAL+FREDERICS&hnear=2110+Northern+Blvd,+Manhasset,+Nassau,+New+York+11030&ll=40.795959,-73.670411&spn=0.009633,0.015278&t=h&z=16&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />THE PLAZA SHOPS<br />1 West 58th Street<br />New York, NY 10019<br /><tel>212-829-1100</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=1+West+58th+Street&sll=40.765234,-73.975024&sspn=0.004819,0.007639&ie=UTF8&t=h&rq=1&ev=zi&radius=0.24&split=1&hq=1+West+58th+Street&hnear=&ll=40.765234,-73.975024&spn=0.004819,0.007639&z=17" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />LOUIS BOSTON<br />60 Northern Ave.<br />Boston, MA 02210<br /><tel>617-421-1705</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%09LOUIS+BOSTON%0960+Northern+Ave.%09+Boston,+MA+02210&sll=41.900408,-87.624738&sspn=0.002368,0.003819&ie=UTF8&hq=MORGENTHAL+FREDERICS+LOUIS&hnear=60+Northern+Ave,+Boston,+Suffolk,+Massachusetts+02210&ll=42.351527,-71.073228&spn=0.004702,0.007639&t=h&z=17&iwloc=A" target="_blank">map</a><br /></td><td></td></tr></table>';break;case'SCN': var statetable = 'CALIFORNIA: NORTH<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>OPTICA </b><br />WESTFIELD SAN FRANCISCO CENTRE<br />845 Market Street<br />San Francisco, CA 94103<br /><tel>415-896-1239</tel>| <a href ="http://maps.google.com/maps?q=OPTICA+%09WESTFIELD+SAN+FRANCISCO+CENTRE%09845+Market+Street%09+San+Francisco,+CA+94103&oe=utf-8&client=firefox-a&ie=UTF8&hl=en&hq=OPTICA&hnear=Market+St,+San+Francisco,+California&ll=37.784096,-122.406149&spn=0.00524,0.007639&t=h&z=17&iwloc=A " target="_blank">map</a><br /></td></tr></table>';break;case'SCS': var statetable = 'CALIFORNIA: SOUTH<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>CLASSICAL EYE</b><br />COSTA VERDE SHOPPING CENTER<br />8650 Genesee Ave.<br />San Diego, CA 92122<br /><tel>858-452-7374</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=CLASSICAL+EYE%098650+Genesee+Ave.%09+San+Diego,+CA+92122&sll=32.920574,-117.177925&sspn=0.683584,0.977783&ie=UTF8&hq=CLASSICAL+EYE&hnear=8650+Genesee+Ave,+San+Diego,+California+92122&ll=32.769558,-117.168932&spn=0.021399,0.030556&t=h&z=15&iwloc=A" target="_blank">map</a><br /></td><td><b>CLASSICAL EYE SUN</b><br />FASHION VALLEY MALL<br />7007 Friars Road<br />San Diego, CA 92108<br /><tel>619-260-0352</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=CLASSICAL+EYE+SUN%097007+Friars+Road%09+San+Diego,+CA+92108&sll=32.773242,-117.144288&sspn=0.042796,0.061111&ie=UTF8&hq=CLASSICAL+EYE+SUN&hnear=7007+Friars+Rd,+San+Diego,+California+92108&ll=32.769558,-117.168948&spn=0.003783,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>DAVANTE </b><br />SOUTH COAST PLAZA<br />3333 Bristol Street<br />Costa Mesa, CA 92626<br /><tel>714-662-1222</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=+3333+Bristol+Street%09+Costa+Mesa,+CA+92626&sll=34.070009,-118.403864&sspn=0.021081,0.030556&ie=UTF8&hq=&hnear=3333+Bristol+St,+Costa+Mesa,+Orange,+California+92626&ll=33.693513,-117.886605&spn=0.002758,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />309 N. Beverly Drive<br />Beverly Hills, CA 90210<br /><tel>310-274-6008</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09309+N.+Beverly+Drive+Beverly+Hills,+CA+90210&sll=34.069565,-118.402963&sspn=0.01054,0.015278&ie=UTF8&hq=OPTICA+309+N.+Beverly+Drive&hnear=Beverly+Hills,+Los+Angeles,+California&ll=34.068538,-118.401048&spn=0.002635,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td></tr><tr><td><b>OPTICA </b><br />GLENDALE GALLERIA <br />2201 Glendale Galleria<br />Glendale, CA 91210<br /><tel>818-547-0900</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%092201+Glendale+Galleria%09+Glendale+CA,+91210&sll=34.068538,-118.401048&sspn=0.002635,0.003819&ie=UTF8&hq=OPTICA+2201+Glendale+Galleria&hnear=Glendale,+California+91210&ll=34.144443,-118.255919&spn=0.002633,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />WESTFIELD TOPANGA <br />6600 Topanga Canyon Blvd.<br />Canoga Park, CA 91303<br /><tel>818-313-9700</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%096600+Topanga+Canyon+Blvd.&sll=34.167609,-118.430241&sspn=0.3369,0.488892&ie=UTF8&hq=OPTICA&hnear=6600+Topanga+Canyon+Blvd,+San+Fernando+Valley,+Los+Angeles,+California+91303&ll=34.190466,-118.604938&spn=0.002631,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />THE RIVER AT RANCHO MIRAGE<br />71-800 Hwy 111<br />Rancho Mirage, CA 92270<br /><tel>760-674-9405</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=OPTICA&sll=33.74032,-116.410081&sspn=0.005291,0.007639&ie=UTF8&t=h&rq=1&ev=zi&radius=0.26&split=1&hq=OPTICA&hnear=&ll=33.74032,-116.410081&spn=0.005291,0.007639&z=17&iwloc=B" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />FASHION VALLEY MALL<br />7007 Friars Road<br />San Diego, CA 92108<br /><tel>619-295-0537</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%097007+Friars+Road%09+San+Diego+CA,+92108&sll=32.769558,-117.16895&sspn=0.042797,0.061111&ie=UTF8&hq=OPTICA+7007+Friars+Road&hnear=San+Diego,+California+92108&ll=32.767871,-117.16714&spn=0.00535,0.007639&t=h&z=17&iwloc=D" target="_blank">map</a><br /></td></tr><tr><td><b>SCENE </b><br />BEVERLY CENTER<br />131 N. La Cienega<br />Los Angeles, CA 90048<br /><tel>310-652-1055</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=131+N.+La+Cienega+blvd+Los+Angeles,+CA+90048&sll=34.068208,-118.37634&sspn=0.000743,0.00129&ie=UTF8&hq=&hnear=131+N+La+Cienega+Blvd,+Los+Angeles,+California+90211&ll=34.068449,-118.376315&spn=0.001495,0.00258&t=h&z=19" target="_blank">map</a><br /></td><td><b>SCENE </b><br />UNIVERSAL CITY WALK<br />1000 Universal Center Drive<br />Universal City, CA 91608<br /><tel>818-755-3909</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=SCENE+1000+Universal+Center+Drive%09+Universal+City,+CA+91608&sll=34.07595,-118.376613&sspn=0.002635,0.003819&ie=UTF8&hq=SCENE&hnear=1000+Universal+Center+Dr,+San+Fernando+Valley,+Los+Angeles,+California+91602&ll=34.136296,-118.351357&spn=0.002633,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td></td><td></td></tr></table>';break;case'SCO': var statetable = 'COLORADO<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>OPTICA </b><br />533 E. Cooper<br />Aspen, CO 81611<br /><tel>970-925-2007</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09%09533+E.+Cooper%09+Aspen,+CO+81611&sll=34.136296,-118.351357&sspn=0.002633,0.003819&ie=UTF8&hq=OPTICA&hnear=533+E+Cooper+Ave,+Aspen,+Pitkin,+Colorado+81611&ll=39.187005,-106.81376&spn=0.002466,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td></tr></table>';break;case'SCO': var statetable = 'COLORADO<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>OPTICA </b><br />533 E. Cooper<br />Aspen, CO 81611<br /><tel>970-925-2007</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09%09533+E.+Cooper%09+Aspen,+CO+81611&sll=34.136296,-118.351357&sspn=0.002633,0.003819&ie=UTF8&hq=OPTICA&hnear=533+E+Cooper+Ave,+Aspen,+Pitkin,+Colorado+81611&ll=39.187005,-106.81376&spn=0.002466,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td></tr></table>';break;case'SFL': var statetable = 'FLORIDA<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>OPTICA </b><br />FLORIDA MALL 1 <br />8001 S. Orange Blossom Trail<br />Orlando, FL 32809<br /><tel>407-888-8009</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=8001+S.+Orange+Blossom+Trail%09+Orlando,+FL+32809&sll=28.45126,-81.398048&sspn=0.022375,0.030556&ie=UTF8&hq=&hnear=8001+S+Orange+Blossom+Trail,+Orlando,+Orange,+Florida+32809&ll=28.444214,-81.398027&spn=0.002915,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />FLORIDA MALL 2<br />8001 S. Orange Blossom Trail<br />Orlando, FL 32809<br /><tel>407-850-2575</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=8001+S.+Orange+Blossom+Trail%09+Orlando,+FL+32809&sll=28.45126,-81.398048&sspn=0.022375,0.030556&ie=UTF8&hq=&hnear=8001+S+Orange+Blossom+Trail,+Orlando,+Orange,+Florida+32809&ll=28.444214,-81.398027&spn=0.002915,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />311 Worth Ave.<br />Palm Beach, FL 33480<br /><tel>561-655-3937</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09%09311+Worth+Ave.%09+Palm+Beach,+FL+33480&sll=28.444214,-81.398027&sspn=0.002915,0.003819&ie=UTF8&hq=OPTICA&hnear=311+Worth+Ave,+Palm+Beach,+Florida+33480&ll=26.700901,-80.039434&spn=0.002842,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />BAL HARBOUR SHOPS<br />9700 Collins Ave.<br />Bal Harbour, FL 33154<br /><tel>305-866-2020</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09BAL+HARBOUR+SHOPS%099700+Collins+Ave.%09+Bal+Harbour,+FL+33154&sll=26.700901,-80.039434&sspn=0.002842,0.003819&ie=UTF8&hq=OPTICA+%09BAL+HARBOUR+SHOPS&hnear=9700+Collins+Ave,+Bal+Harbour,+Miami-Dade,+Florida+33154&ll=25.888386,-80.125217&spn=0.002862,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td></tr><tr><td><b>OPTICAL ELEMENTS</b><br />DADELAND MALL<br />7681 SW 88th Street<br />Miami, FL 33156<br /><tel>305-669-0882</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=OPTICAL+ELEMENTS+DADELAND+MALL&sll=25.68866,-80.315981&sspn=0.011467,0.015278&ie=UTF8&t=h&rq=1&ev=zi&radius=0.57&split=1&filter=0&hq=OPTICAL+ELEMENTS+DADELAND+MALL&hnear=&ll=25.68866,-80.315981&spn=0.011467,0.015278&z=16&iwloc=A" target="_blank">map</a><br /></td><td></td><td></td><td></td></tr></table>';break;case'SGA': var statetable = 'GEORGIA<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>DAVANTE </b><br />LENOX SQUARE <br />3393 Peachtree Road<br />Atlanta, GA 30326<br /><tel>404-442-8900</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=DAVANTE+%093393+Peachtree+Road%09+Atlanta,+GA+30326&sll=25.68866,-80.315981&sspn=0.011467,0.015278&ie=UTF8&hq=DAVANTE&hnear=3393+Peachtree+Rd+NE,+Atlanta,+Fulton,+Georgia+30326&ll=33.847652,-84.363424&spn=0.002642,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td></tr></table>';break;case'SIL': var statetable = 'ILLINOIS<br /><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td><b>OPTICA </b><br />THE SHOPS AT NORTH BRIDGE <br />520 N. Michigan Ave.<br />Chicago, IL 60611<br /><tel>312-595-1171</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09+%09520+N.+Michigan+Ave.%09+Chicago,+IL+60611&sll=41.923692,-87.668442&sspn=0.151478,0.244446&ie=UTF8&hq=OPTICA+520+N.+Michigan+Ave.&hnear=Chicago,+Illinois+60611&ll=41.89158,-87.624169&spn=0.002368,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td><td><b>OPTICA </b><br />129 East Oak Street<br />Chicago, IL 60611<br /><tel>312-642-2550</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09%09129+East+Oak+Street%09+Chicago,+IL+60611&sll=41.89158,-87.624169&sspn=0.002368,0.003819&ie=UTF8&hq=OPTICA&hnear=129+E+Oak+St,+Chicago,+Cook,+Illinois+60611&ll=41.900408,-87.624738&spn=0.002368,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td></tr></table>';break;case'SMA': var statetable = 'MASSACHUSETTS<br /><br /><table border="0" cellspacing="0" cellpadding="0"><tr><td><b>MORGENTHAL FREDERICS</b><br />LOUIS BOSTON<br />60 Northern Ave.<br />Boston, MA 02210<br /><tel>617-421-1705</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%09LOUIS+BOSTON%0960+Northern+Ave.%09+Boston,+MA+02210&sll=41.900408,-87.624738&sspn=0.002368,0.003819&ie=UTF8&hq=MORGENTHAL+FREDERICS+LOUIS&hnear=60+Northern+Ave,+Boston,+Suffolk,+Massachusetts+02210&ll=42.351527,-71.073228&spn=0.004702,0.007639&t=h&z=17&iwloc=A " target="_blank">map</a><br /></td><td><b>OPTICA </b><br />NATICK COLLECTION<br />1245 Worcester Street<br />Natick, MA 01760<br /><tel>508-655-2321</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=%091245+Worcester+Street%09+Natick,+MA+01760&sll=42.300151,-71.382734&sspn=0.009411,0.015278&ie=UTF8&hq=&hnear=1245+Worcester+St,+Natick,+Middlesex,+Massachusetts+01760&ll=42.299453,-71.384933&spn=0.002452,0.003819&t=h&z=18 " target="_blank">map</a><br /></td></tr></table>';break;case'SMI': var statetable = 'MICHIGAN<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>AUCOURANT </b><br />THE SOMERSET COLLECTION<br />2801 W. Big Beaver<br />Troy, MI 48084<br /><tel>248-643-6220</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=AUCOURANT+%09THE+SOMERSET+COLLECTION%092801+W.+Big+Beaver%09+Troy,+MI+48084&sll=42.299453,-71.384933&sspn=0.002452,0.003819&ie=UTF8&hq=AUCOURANT+THE+SOMERSET+COLLECTION+2801+W.+Big+Beaver&hnear=Troy,+Michigan+48084&ll=42.559592,-83.183396&spn=0.002343,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td></tr></table>';break;case'SNV': var statetable = 'NEVADA<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>DAVANTE</b><br />THE FORUM SHOPS AT CAESARS <br />3500 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-737-8585</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=DAVANTE%09THE+FORUM+SHOPS+AT+CAESARS+%093500+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.222355,-115.08523&sspn=0.010698,0.015278&g=3500+N+Las+Vegas+Blvd,+Las+Vegas,+Clark,+Nevada+89115&ie=UTF8&hq=DAVANTE+THE+FORUM+SHOPS+AT+CAESARS+3500+Las+Vegas+Blvd.+South&hnear=Las+Vegas,+Nevada+89109&ll=36.11956,-115.173347&spn=0.00257,0.003819&t=h&z=18&iwloc=B" target="_blank">map</a><br /></td><td><b>DAVANTE SUN</b><br />THE FORUM SHOPS AT CAESARS <br />3500 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-737-0023</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=DAVANTE%09THE+FORUM+SHOPS+AT+CAESARS+%093500+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.222355,-115.08523&sspn=0.010698,0.015278&g=3500+N+Las+Vegas+Blvd,+Las+Vegas,+Clark,+Nevada+89115&ie=UTF8&hq=DAVANTE+THE+FORUM+SHOPS+AT+CAESARS+3500+Las+Vegas+Blvd.+South&hnear=Las+Vegas,+Nevada+89109&ll=36.11956,-115.173347&spn=0.00257,0.003819&t=h&z=18&iwloc=B" target="_blank">map</a><br /></td><td><b>LUNETTES </b><br />LE BOULEVARD SHOPS AT PARIS LAS VEGAS <br />3645 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-734-0170</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=LUNETTES+%093645+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.120246,-115.170318&sspn=0.020557,0.030556&ie=UTF8&hq=LUNETTES&hnear=Las+Vegas+Blvd+S,+Las+Vegas,+Nevada+89109&ll=36.111933,-115.172108&spn=0.00257,0.003819&t=h&z=18&iwloc=C" target="_blank">map</a><br /></td><td><b>OPTICA</b><br />MONTE CARLO RESORT AND CASINO<br />3770 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-740-8345</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MONTE+CARLO+RESORT+AND+CASINO%093770+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.17665,-115.089318&sspn=0.328675,0.488892&ie=UTF8&hq=MONTE+CARLO+RESORT+AND+CASINO+3770+Las+Vegas+Blvd.+South&hnear=Las+Vegas,+Nevada+89109&ll=36.101969,-115.178218&spn=0.00514,0.007639&t=h&z=17&iwloc=A" target="_blank">map</a><br /></td></tr><tr><td><b>OPTICA </b><br />FASHION SHOW MALL<br />3200 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-733-7624</tel>| <a href ="http://maps.google.com/maps?source=s_q&hl=en&geocode=&q=FASHION+SHOW+MALL+3200+Las+Vegas+Blvd.+South&sll=36.221468,-115.195706&sspn=0.328487,0.488892&ie=UTF8&hq=FASHION+SHOW+MALL+3200+Las+Vegas+Blvd.+South&hnear=Las+Vegas,+Nevada+89109&ll=36.12817,-115.170815&spn=0.010277,0.015278&t=h&z=16" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />MANDALAY PLACE SHOPPING CENTER<br />3930 Las Vegas Blvd. South<br />Las Vegas, NV 89119<br /><tel>702-798-6171</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=%093930+Las+Vegas+Blvd.+South&sll=36.12817,-115.170815&sspn=0.010277,0.015278&ie=UTF8&hq=&hnear=3930+S+Las+Vegas+Blvd,+Las+Vegas,+Clark,+Nevada+89119&ll=36.094054,-115.174441&spn=0.010715,0.015278&t=h&z=16" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />MIRAGE HOTEL<br />3400 South Las Vegas Blvd.<br />Las Vegas, NV 89109<br /><tel>702-692-8500</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09MIRAGE+HOTEL%093400+South+Las+Vegas+Blvd.%09+Las+Vegas,+NV+89109&sll=36.094054,-115.174441&sspn=0.010715,0.015278&g=3930+Las+Vegas+Blvd.+South&ie=UTF8&hq=OPTICA+MIRAGE+HOTEL+3400+South+Las+Vegas+Blvd.&hnear=Las+Vegas,+Nevada+89109&ll=36.123958,-115.170214&spn=0.010278,0.015278&t=h&z=16&iwloc=A" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />MGM GRAND HOTEL<br />3799 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-740-2226</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09MGM+GRAND+HOTEL%093799+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.123975,-115.170214&sspn=0.010347,0.015278&ie=UTF8&hq=OPTICA+MGM+GRAND+HOTEL+3799+Las+Vegas+Blvd.+South&hnear=Las+Vegas,+Nevada+89109&ll=36.102047,-115.168626&spn=0.00514,0.007639&t=h&z=17&iwloc=A" target="_blank">map</a><br /></td></tr><tr><td><b>OPTICA </b><br />THE GRAND CANAL SHOPPES AT THE VENETIAN (near Tao)<br />3377 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-733-1355</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3377+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.169945,-115.279434&sspn=0.010705,0.015278&g=VENETIAN+%093377+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&ie=UTF8&hq=&hnear=Las+Vegas+Blvd+S,+Las+Vegas,+Nevada+89109&ll=36.121098,-115.172371&spn=0.005356,0.007639&t=h&z=17" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />THE GRAND CANAL SHOPPES AT THE VENETIAN (Lobby)<br />3355 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-733-2121</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=3377+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.169945,-115.279434&sspn=0.010705,0.015278&g=VENETIAN+%093377+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&ie=UTF8&hq=&hnear=Las+Vegas+Blvd+S,+Las+Vegas,+Nevada+89109&ll=36.121098,-115.172371&spn=0.005356,0.007639&t=h&z=17" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />THE SHOPPES AT THE PALAZZO (Lobby)<br />3327 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-699-9678</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=%093327+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.106953,-115.171394&sspn=0.082242,0.122223&ie=UTF8&hq=&hnear=Las+Vegas+Blvd+S,+Las+Vegas,+Nevada+89109&ll=36.123611,-115.170547&spn=0.005356,0.007639&t=h&z=17" target="_blank">map</a><br /></td><td><b>SCENE</b><br />THE SHOPPES AT THE PALAZZO<br />3327 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-696-9528</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=%093327+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.106953,-115.171394&sspn=0.082242,0.122223&ie=UTF8&hq=&hnear=Las+Vegas+Blvd+S,+Las+Vegas,+Nevada+89109&ll=36.123611,-115.170547&spn=0.005356,0.007639&t=h&z=17" target="_blank">map</a><br /></td></tr><tr><td><b>SCENE </b><br />TREASURE ISLAND HOTEL<br />3300 Las Vegas Blvd. South<br />Las Vegas, NV 89109<br /><tel>702-731-2360</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=SCENE+%09TREASURE+ISLAND+HOTEL%093300+Las+Vegas+Blvd.+South%09+Las+Vegas,+NV+89109&sll=36.123611,-115.170547&sspn=0.005356,0.007639&ie=UTF8&hq=SCENE+TREASURE+ISLAND+HOTEL&hnear=Las+Vegas+Blvd+S,+Las+Vegas,+Nevada+89109&ll=36.124032,-115.171174&spn=0.00257,0.003819&t=h&z=18&iwloc=C" target="_blank">map</a><br /></td><td><b>SCENE </b><br />MANDALAY BAY RESORT<br />3950 Las Vegas Blvd. South<br />Las Vegas NV 89119<br /><tel>702-597-0018</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MANDALAY+BAY+RESORT%093950+Las+Vegas+Blvd.+South&sll=36.10792,-115.173156&sspn=0.041121,0.061111&ie=UTF8&hq=Mandalay+Bay+Resort+and+Casino&hnear=Mandalay+Bay+Resort+and+Casino,+3950+S+Las+Vegas+Blvd,+Las+Vegas,+Nevada+89119&ll=36.091809,-115.175139&spn=0.005141,0.007639&t=h&z=17&iwloc=A" target="_blank">map</a><br /></td></tr></table>';break;case'SNJ': var statetable = 'NEW JERSEY<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>AUCOURANT </b><br />57 Palmer Square West<br />Princeton, NJ 08542<br /><tel>609-921-9600</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=AUCOURANT+%09%0957+Palmer+Square+West%09+Princeton,+NJ+08542&sll=36.091809,-115.175139&sspn=0.005141,0.007639&ie=UTF8&hq=AUCOURANT&hnear=57+Palmer+Square+W,+Princeton,+Mercer,+New+Jersey+08542&ll=40.349991,-74.661729&spn=0.002424,0.003819&t=h&z=18&iwloc=A " target="_blank">map</a><br /></td><td><b>OPTICA </b><br />THE MALL AT SHORT HILLS <br />1200 Morris Turnpike<br />Short Hills, NJ 07078<br /><tel>973-379-5252</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=THE+MALL+AT+SHORT+HILLS+%091200+Morris+Turnpike%09+Short+Hills,+NJ+07078&sll=40.741535,-74.363537&sspn=0.077126,0.122223&ie=UTF8&hq=Mall+At+Short+Hills&hnear=Mall+At+Short+Hills,+1200+Morris+Turnpike,+Short+Hills,+New+Jersey+07078&ll=40.740193,-74.36462&spn=0.00482,0.007639&t=h&z=17&iwloc=A " target="_blank">map</a><br /></td><td><b>OPTICA </b><br />WESTFIELD GARDEN STATE PLAZA <br />One Garden State Plaza<br />Paramus, NJ 07652<br /><tel>201-845-3838</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA+%09WESTFIELD+GARDEN+STATE+PLAZA+%091+Garden+Street+Plaza%09+Paramus,+NJ+07652&sll=40.917145,-74.075661&sspn=0.16033,0.244446&ie=UTF8&hq=OPTICA+WESTFIELD+GARDEN+STATE+PLAZA+1+Garden+Street+Plaza&hnear=Paramus,+New+Jersey+07652&ll=40.917437,-74.075532&spn=0.010021,0.015278&t=h&z=16&iwloc=A " target="_blank">map</a><br /></td><td></td></tr></table>';break;case'SNY': var statetable = 'NEW YORK<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>MORGENTHAL FREDERICS</b><br />699 Madison Ave.<br />New York, NY 10065<br /><tel>212-838-3090</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=MORGENTHAL+FREDERICS&sll=40.765665,-73.969671&sspn=0.002409,0.003819&ie=UTF8&t=h&rq=1&ev=zi&radius=0.12&split=1&hq=MORGENTHAL+FREDERICS&hnear=&ll=40.765665,-73.969671&spn=0.002409,0.003819&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />944 Madison Ave.<br />New York, NY 10021<br /><tel>212-744-9444</tel>| <a href ="http://maps.google.com/maps?client=safari&oe=UTF-8&ie=UTF8&q=MORGENTHAL+FREDERICS+944+Madison+Ave.+New+York,+NY+10021&fb=1&gl=us&hq=MORGENTHAL+FREDERICS&hnear=944+Madison+Ave,+New+York,+NY+10021&cid=0,0,12259303959747176608&ei=HEPkTIT4FJO-sAOryORm&oi=local_result&ved=0CBoQnwIwAA&t=h&z=16&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />399 W. Broadway<br />New York, NY 10012<br /><tel>212-966-0099</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%09%09399+W.+Broadway%09+New+York,+NY+10012&sll=40.765665,-73.969671&sspn=0.002409,0.003819&ie=UTF8&hq=MORGENTHAL+FREDERICS+399+W.+Broadway&hnear=New+York+10012&ll=40.724287,-74.002034&spn=0.002411,0.003819&t=h&z=18&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />THE SHOPS AT COLUMBUS CIRCLE<br />10 Columbus Circle<br />New York, NY 10019<br /><tel>212-956-6402</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%09THE+SHOPS+AT+COLUMBUS+CIRCLE%0910+Columbus+Circle%09+New+York,+NY+10019&sll=40.724287,-74.002034&sspn=0.002411,0.003819&ie=UTF8&hq=MORGENTHAL+FREDERICS+THE+SHOPS+AT+COLUMBUS+CIRCLE+10&hnear=Columbus+Circle,+West+58th+Street,+New+York,+10019&ll=40.767891,-73.982341&spn=0.004818,0.007639&t=h&z=17&iwloc=A" target="_blank">map</a><br /></td></tr><tr><td><b>MORGENTHAL FREDERICS</b><br />AMERICANA MANHASSET <br />2110-H Northern Blvd.<br />Manhasset, NY 11030<br /><tel>516-627-6620</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=MORGENTHAL+FREDERICS%092110+Northern+Blvd.%09+Manhasset,+NY+11030&sll=40.760124,-73.836223&sspn=0.308417,0.488892&ie=UTF8&hq=MORGENTHAL+FREDERICS&hnear=2110+Northern+Blvd,+Manhasset,+Nassau,+New+York+11030&ll=40.795959,-73.670411&spn=0.009633,0.015278&t=h&z=16&iwloc=A" target="_blank">map</a><br /></td><td><b>MORGENTHAL FREDERICS</b><br />THE PLAZA SHOPS<br />1 West 58th Street<br />New York, NY 10019<br /><tel>212-829-1100</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=1+West+58th+Street&sll=40.765234,-73.975024&sspn=0.004819,0.007639&ie=UTF8&t=h&rq=1&ev=zi&radius=0.24&split=1&hq=1+West+58th+Street&hnear=&ll=40.765234,-73.975024&spn=0.004819,0.007639&z=17" target="_blank">map</a><br /></td><td><b>OPTICA </b><br />ROOSEVELT FIELD MALL<br />630 Old Country Road<br />Garden City, NY 11530<br /><tel>516-535-1165</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&q=OPTICA+ROOSEVELT+FIELD+MALL+630+Old+Country+Road&sll=40.738539,-73.613055&sspn=0.00241,0.003819&ie=UTF8&t=h&rq=1&ev=zi&radius=0.12&split=1&filter=0&hq=OPTICA+ROOSEVELT+FIELD+MALL+630+Old+Country+Road&hnear=&ll=40.738539,-73.613055&spn=0.00241,0.003819&z=18&iwloc=B" target="_blank">map</a><br /></td><td></td></tr></table>';break;case'STX': var statetable = 'TEXAS<br /><br /><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td><b>OPTICA</b><br />THE GALLERIA<br />5085 Westheimer<br />Houston, TX 77056<br /><tel>713-621-4225</tel>| <a href ="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=OPTICA%09THE+GALLERIA%095085+Westheimer%09+Houston,+TX+77056&sll=40.738539,-73.613055&sspn=0.00241,0.003819&ie=UTF8&hq=OPTICA+THE+GALLERIA+5085+Westheimer&hnear=Houston,+Texas+77056&ll=29.740551,-95.463209&spn=0.011048,0.015278&t=h&z=16&iwloc=D " target="_blank">map</a><br /></td></tr></table>';break;
+}									
+				
+				
+			$("location_state").innerHTML = statetable;										
+													
+				stateFx.start(500, 0).start(location_stateFx.start(.99));
+				$('location_box').setStyles({
+					  display:'block'
+				  });
+			});
+
+			
+			$('loacations_menu').addEvent('mouseleave', function(){
+				setTimeout( function(){
+				  $('state_box').tween('height', 0);
+				  }, 500 );
+			});			
+			
+	});
+
+	
+});
+
+</script>
+
+<script type="text/javascript">
+window.addEvent('domready', function(){								 
+	$('J333063024').addEvent('submit', function(e) {
+	
+	var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	var address = $('email').value;
+	
+		if(reg.test(address) == false) {
+		
+			$('error_message').setStyles({
+				 display:'block'
+			});
+		 return false;
+			}
+	});
+
+	$('email').addEvent('click', function(){
+				$('error_message').setStyles({
+			   display:'none'
+		  });							 
+ 	});
+});
+</script>
+
+<style type="text/css">
+<!--
+
+@charset "UTF-8";
+html,body {
+	-webkit-text-size-adjust:none;
+	margin:0;
+	padding:0;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#FFF;
+	background-image: url(); 
+	background-repeat:repeat-x;
+	background-color:#7c624d;
+	font-weight:bold;
+	color:#333;
+	font-family:
+}
+a { outline: 0; } 
+a:link {color:#333}
+a:visited {color:#333}
+
+#container {
+	width:100%;
+	margin-left:auto; 
+	margin-right:auto;
+	margin-top:0px;
+	background-image:url(); 
+	background-repeat:repeat-y; 
+	height:auto !important; 
+	min-height:100%;
+	background-color:#FFF;
+	position:relative;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:11px;
+	color:#FFF;
+	background-color:#7c624d;
+}
+
+#main_window {
+	width:1050px;
+	margin-left:auto; 
+	margin-right:auto; 
+	position:relative; 
+	border:none 1px #666; 
+	height:790px; 
+	overflow:hidden; 
+	margin-top:5px;
+}
+
+#content {
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+div#footer {
+	width:100%;
+	position:absolute;
+	z-index:300;
+	top:550px; /* stick to bottom */
+	text-align:left;
+	font-size:11px;
+	background-position:top;
+	background-repeat:repeat-x;
+	padding:23px 0 20px 0;
+	height:70px;
+}
+
+#footer_box {
+	position:relative; 
+	width:968px; 
+	margin-left:auto; 
+	margin-right:auto; 
+	padding-left:95px	
+}
+
+.nav_box{ 
+	width:122px; 
+	height:28px; 
+	float:left; 
+	margin:0 0 0 18px
+}
+
+.nav_but {
+	background-image:url(img/bg_gd_a.gif); 
+	background-position:bottom; 
+	background-repeat:repeat-x; 
+	background-color:#FFF;  
+	border:solid 1px #CCC; 
+	height:28px; 
+	cursor:pointer;
+}
+
+.nav_but img {
+	margin-left:auto; 
+	margin-right:auto; 
+	margin-top:9px; 
+	display:block
+}
+
+.nav_but:hover, .nav_but:focus { 
+	background-image:url(img/bg_gd_b.gif); 
+	background-position:top 
+}
+
+#menu_block  {
+	width:492px; 
+	height:580px; 
+	position:absolute; 
+	z-index:302; 
+	left:168px; 
+	top:-700px; 
+	background-image:url(img/bg_block.png); 
+	background-position:bottom left; 
+	background-repeat:no-repeat
+	}
+	
+#content_list  {
+	width:492px; 
+	height:250px; 
+	position:absolute; 
+	z-index:301; 
+	left:168px; 
+	top:-420px; 
+	background-image:url(img/bg_block.png); 
+	background-position:bottom left; 
+	background-repeat:no-repeat
+	}
+#list_content {
+	margin:75px 60px 0 42px; 
+	height:140px; 
+	color:#333; 
+	line-height:25px; 
+	position:relative; 
+	z-index:1350; 
+	text-align:left
+}
+
+#list_content b {
+	font-size:12px; 
+	font-weight:bold; 
+	color:#684f40;
+}
+
+#contact  {
+	width:800px; 
+	height:250px; 
+	position:absolute; 
+	z-index:200; 
+	left:168px; 
+	top:-270px; 
+	border: solid 1px #CCC; 
+	background-color:#FFF; 
+	border-top:none;
+	}
+	
+#list_contact {
+	margin:80px 60px 0 78px; 
+	height:140px; 
+	color:#666; 
+	line-height:25px; 
+	position:relative; 
+	z-index:1350; 
+	text-align:left;
+	font-size:12px;
+}
+
+#list_contact td {
+	padding:0 15px 0 0;
+}
+
+#list_contact b {
+	font-size:12px; 
+	font-weight:bold; 
+	color:#684f40;
+	
+}
+
+/* mootools show */
+#slideshow-container { width:900; position:absolute; top:280px; left:100px;}
+#slideshow-container img { display:block; position:absolute; top:-140px }
+#slideshow-container-controls {width:3100px; position:absolute; overflow:hidden} /* thumbnail container width*/
+#slideshow-container-controls img { cursor:pointer; width:80px; height:39px; margin:0 2px 0 2px;}
+.toc-active				{ border-color:#000; }
+/* mootools show */
+
+
+.state {
+border:solid 1px #CCC;
+border-top:none;
+color:#999;
+padding:10px 0 10px 7px;
+font-weight:normal;
+background-color:#FFF;
+cursor:pointer;
+}
+
+.state:hover, .state:focus { background-image:url(img/bg_state.gif); background-position:top; background-repeat:repeat}
+#SMF:hover, #SMF:focus { background-image:url(img/bg_state_2.gif); background-position:top; background-repeat:repeat}
+
+#state_box {
+	overflow:hidden;
+	height:0px;
+}
+
+#location_box { 
+	padding:1px;
+	padding-left:60px;
+	padding-right:60px;
+	margin:1px;
+	padding-top:75px;
+	}
+
+#location_state {
+	background-color:#FFF;
+	border:solid 1px #CCC;
+	color:#666;
+	font-weight:normal;
+	padding:30px 0 25px 50px;
+	line-height:20px;
+	visibility:hidden;
+	display:block;
+	position:relative;
+	z-index:500;
+	width:auto;
+}
+
+#location_state table {
+	margin:0 40px 0 0;
+}
+
+#location_state td {
+	padding:0px 25px 15px 0;
+	vertical-align:top;
+	max-width:210px;
+}
+
+#location_state b {
+	color:#7A5119;
+}
+
+#location_state a:link {
+	color:#7A5119;
+	text-decoration:none
+}
+
+#location_state a:visited{
+	color:#7A5119;
+	text-decoration:none;
+}
+
+
+#logo {
+	width:150px; 
+	position:absolute; 
+	z-index:303; 
+	left:30px; 
+	top:30px;
+}
+
+#navigation {
+	position:absolute; 
+	z-index:1000; 
+	left:190px; 
+	top:30px;
+}
+
+#about_content{
+	color:#666; 
+	width:385px; 
+	line-height:21px; 
+	font-weight:normal;
+	padding:180px 0 0 42px;
+}
+#about_content b {
+	color:#7A5119
+}
+#about_content div {
+	height:12px
+}
+
+.btn-primary  {
+	font-size:11px;
+	margin:5px 0 0 0;
+	padding: 3px 10px 3px 10px;
+	text-decoration: none;
+	display: block;
+	color: #684f40;
+	background-color: #FFFFFF;
+	border-top: 1px #e5e5e5 solid;
+	border-left: 1px #e5e5e5 solid;
+	border-bottom: 1px #5f5f5f solid;
+	border-right: 1px #5f5f5f solid;
+	height:30px;
+	background-image:url(img/bg_gd_a.gif);
+	background-position:bottom;
+	background-repeat:repeat-x;
+}
+
+.btn-primary:hover {
+	background-color: #FFF;
+	border-top: 1px #31557f solid;
+	border-left: 1px #31557f solid;
+	border-bottom: 1px #cce3ff solid;
+	border-right: 1px #cce3ff solid;
+	background-image:url(img/bg_gd_b.gif);
+	background-position:top;
+	background-repeat:repeat-x;
+}
+#captions {
+	color:#684f40; 
+	line-height:22px; 
+	position:absolute; 
+	top:-90px; 
+	font-size: 1.2em;
+	}
+#captions h3 {
+	font-size:12px;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+	color:#7A5119;
+	}
+#captions p {
+	font-size:12px;
+	margin:0px;
+	font-weight:normal;
+	color:#666;
+}
+
+#captions_box {
+	background-color:#FFF; 
+	overflow:hidden; 
+	width:837px; 
+	height:50px; 
+	position:relative
+}
+
+#slide_thumbnails {
+	margin-top:100px;
+}
+
+#slider_box {
+	position: relative; 
+	margin-top:10px
+}
+
+#slider_bg {
+	background-image:url(img/slider_bg.png); 
+	background-repeat:repeat-x; 
+	position:absolute; 
+	width:850px;
+}
+
+#slider_bg_right {
+	position:absolute; 
+	width:850px;
+}
+
+#slider_bg_right img {
+	float:right
+}
+
+#container {
+	width:100%; 
+	margin-left:auto; 
+	margin-right:auto;
+	margin-top:0px;
+	background-image:url(); 
+	background-repeat:repeat-y; 
+	height:auto !important; 
+	min-height:100%;
+	background-color:#FFF;
+	position:relative;
+	}
+	
+#fadein {
+	width:99.9%; 
+	margin-top:0px;
+	background-image:url(); 
+	background-repeat:repeat-y; 
+	height:auto !important; 
+	min-height:99%;
+	background-color:#FFF;
+	position:absolute;
+	z-index:5000;
+	}
+#logo_fade {
+	width:100px; 
+	position:absolute; 
+	top:30%;
+	left:50%;
+	margin-right:-120px
+}
+#logo_fade_img {
+	padding:55px 0 0 30px; 
+	position:absolute; 
+	left:-200px; 
+	top:-150px
+}
+
+#logo_tag {
+	position:absolute; 
+	left:-315px; 
+	top:265px
+}
+
+div.slider {
+	width: 848px;
+	height: 16px;
+	cursor:pointer;
+	position:absolute;
+}
+div.slider div.knob {
+	background-image:url(img/knob.png);
+	background-position:left;
+	background-repeat:no-repeat;
+	width: 116px;
+	height: 16px;
+}
+#myknob {
+	z-index:100; 
+	width:110px; 
+	height:14px
+}
+div#fontSize {
+	height: 50px;
+	position:relative;
+}
+
+.form_field {
+	width:250px; 
+	margin:5px 0; 
+	padding-left:10px; 
+	background-image:url(img/bg_gd_b.gif); 
+	background-position:top; 
+	background-repeat:repeat-x; 
+	border:solid 1px #CCC; 
+	height:30px; 
+	color:#684f40; 
+	margin-left:auto;
+}
+
+@media screen and (max-device-width: 480px){
+/*--- iPhone only CSS here ---*/
+#main_window {
+	border:none 0px #666;
+	margin-top:0px;
+	padding-top:0px
+
+}
+#fadein {
+	width:1050px;
+	margin-left:auto; 
+	margin-right:auto;
+	background-color:#FFF;
+}
+}
+
+@media screen and (max-device-width: 1024px){
+/*--- iPad only CSS here ---*/
+#main_window {
+	border:none 0px #666;
+	margin-top:0px;
+	padding-top:0px
+
+}
+}
+
+
+-->
+</style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9390772-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+<div id="fadein">
+  <div id="logo_fade"><img src="img/MF_LOGO_lg.png" width="300" height="300" id="logo_fade_img" /><Br />
+  <img src="img/tag.png" width="581" height="31" id="logo_tag" /></div></div>
+<div id="container">
+<div id="main_window">
+        <div id="location_box">
+            <div id="location_state">
+            CALIFORNIA: South<br />
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td><b>DAVANTE</b><br />445 N. Rodeo Drive<br /> Beverly Hills, CA 90210<br /><tel>310 285 3969</tel> | <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Davante+Inc,+Beverly+Hills,+CA+90210&sll=34.073386,-118.407555&sspn=0.024848,0.032487&gl=us&g=45+North+Rodeo+Drive,+Beverly+Hills,+CA+90210&ie=UTF8&hq=Davante+Inc,&hnear=Beverly+Hills,+Los+Angeles,+California&ll=34.070222,-118.403864&spn=0.01198,0.016243&t=h&z=16&iwloc=A" target="_blank">map</a><br /></td>
+                        <td><b>OPTICA</b> <br />309 N. Beverly Drive<br /> Beverly Hills, CA 90210<br />310 274 6008 | <a href="">map</a><br /></td>
+                        <td><b>OPTICA DISPENSARY</b><br />WESTFIELD TOPANGA<br />416 N. Bedford, Suite 300<br />Beverly Hills, CA 90210<br />310 205 5567 | <a href="">map</a><br /></td>
+                        <td><b>OPTICA</b> <br />6600 Topanga Canyon Blvd.<br />Canoga Park, CA 91303<br />818 313 9700 | <a href="">map</a><br /></td>
+                      </tr>
+                      <tr>
+                        <td><b>OPTICA DISPENSARY</b><br />SOUTH COAST PLAZA<br />2080 Century Park East, Suite 803<br />Century City, CA 90067<br />310 556 4668 | <a href="">map</a><br /></td>
+                        <td><b>DAVANTE</b> <br />3333 Bristol Stret<br /> Costa Mesa, CA 92626<br />714 662 1222 | <a href="">map</a><br /></td>
+                        <td><b>OPTICA</b> <br />GLENDALE GALLERIA <br />2201 Glendale Galleria<br /> Glendale, CA 91210<br />818 547 0900 | <a href="">map</a><br /></td>
+                        <td><b>SCENE</b> <br />BEVERLY CENTER<br />131 N. La Cienega Blvd.<br /> Los Angeles, CA 90048<br />310 652 1055 | <a href="">map</a><br /></td>
+                      </tr>
+                      <tr>
+                        <td><b>OPTICA</b> <br />THE RIVER AT RANCHO MIRAGE<br />71 800 Hwy 111<br /> Rancho Mirage, CA 92270<br />760 674 9405 | map<br /></td>
+                        <td><b>CLASSICAL EYE</b><br />COSTA VERDE CENTER<br />8650 Genesee Ave.<br /> San Diego, CA 92122<br />858 452 7374 | <a href="">map</a><br /></td>
+                        <td><b>CLASSICAL EYE SUN</b><br />FASHION VALLEY MALL<br />7007 Friars Road<br /> San Diego, CA 92108<br />619 260 0352 | <a href="">map</a><br /></td>
+                        <td><b>OPTICA</b><br />FASHION VALLEY MALL<br />7007 Friars Road<br /> San Diego, CA 92108<br />619 295 0537 | <a href="">map</a><br /><br /></td>&nbsp;</td>
+                      </tr>
+                    </table>
+            </div>
+        </div> 
+        <div id="logo">
+        <img src="img/logo.png"/>
+        </div>
+<div id="menu_block">
+    <div id="about_content">
+    <B>ICONIC EYEWEAR, LEGENDARY DESIGN</B>
+        <div></div>
+        For 25 years, Morgenthal Frederics has been creating legendary designs for the most recognizable faces in the world. We produce ultra high-end optical eyewear and sunglasses for those 
+        who covet classic American design and appreciate superlative quality. We make eyewear. That's all we make.
+        <div></div>
+        Every frame in the Morgenthal Frederics collection is a perfect convergence of style, craftsmanship and function.  Each piece is handcrafted from the finest materials and to standards of excellence unrivaled in the optical industry. All the metal used in our frames is composed of top grade Japanese titanium. Our plastic frames are hand crafted from sheet acetate in Japan and France and our signature one-of-a-kind buffalo horn frames are hand milled by master craftsmen in Germany. Once fitted with the finest optical lenses available, our eyewear simply stands alone. 
+        <div></div>
+        To view the entire Morgenthal Frederics collection<br />please visit one of our retail locations.<br />
+        </div>
+    </div>
+    <div id="content_list">
+        <div id="list_content">
+        <b>We invite you to join our list.</b><br />
+            <div style="margin-left:0px; width:250px;">
+            <TABLE CELLPADDING="0" CELLSPACING="0" BORDER="0">
+            <FORM ACTION="http://www.jangomail.com/APPLICATION/PGSF2.asp" METHOD="POST" NAME="J333063024" ID="J333063024"> 
+            <input type="hidden" name="GroupID" value="333063024">
+            <input type="hidden" name="SuccessURL" value="http://morgenthalfrederics.com/success.html">
+            <input type="hidden" name="ErrorURL" value="http://morgenthalfrederics.com/signup_error.html">
+            <input type="hidden" name="PassValues" value="y">
+            <TR>
+            <TD>
+            <INPUT TYPE="text" NAME="email" SIZE="20" value="Please enter your email." id="email" class="form_field" onClick="this.value=''">
+            </TD>
+            </TR>
+            <!-- 
+            <TR>
+            <TD>
+            <INPUT TYPE="text" NAME="190063496" SIZE="20" value="Please enter your First Name." class="form_field" onClick="this.value=''">
+            </TD>
+            </TR>
+            
+            <TR>
+            <TD>
+            <INPUT TYPE="text" NAME="190063508" SIZE="20" value="Please enter your Last Name." class="form_field" onClick="this.value=''">
+            </TD>
+            </TR>
+            
+            <TR>
+            <TD>
+            <INPUT TYPE="text" NAME="190063520" SIZE="20" value="Please enter your Zip Code." class="form_field" onClick="this.value=''">
+            </TD>
+            </TR>
+            -->
+            <TR>
+            <TD>
+            <INPUT TYPE="submit" VALUE="Submit" class="btn-primary" style="margin-right:auto" id="submitter" >
+            </TD>
+            </TR>
+             <TR>
+            <TD>
+            <div id="error_message" style="display:none; color:#792609"><strong>You have entered an invalid email address.</strong></div> 
+            </TD>
+            </TR> 
+            
+            </FORM>
+            </TABLE>
+
+            </div>
+        
+        </div>
+    </div>
+      <div id="contact">
+              <div id="list_contact">
+                  <div style="margin-left:0px; padding-top:40px">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="left" valign="top"><B>Customer Service:</B></td>
+                    <td>info@loholdings.com<Br />
+                702-487-4212<Br /></td>
+                <td><div style="height:50px; border-left:solid 1px #999; margin:0 10px"></div></td>
+                    <td align="left" valign="top"><b>Career Opportunities:</b></td>
+                    <td>info@loholdings.com<Br />
+                702-487-4212<Br /></td>
+                  </tr>
+                </table>              
+              </div>
+          </div>
+      </div>
+    <div id="navigation">
+    
+      <div class="nav_box"><div class="nav_but" id="about"><img src="img/about.gif" width="42" height="9" /></div></div>
+          <div class="nav_box">
+                <div id="loacations_menu"><div class="nav_but" id="locations"><img src="img/locations_o.gif" width="69" height="9" border="0" /></div>
+                <div id="state_box">
+                  <div class="state" id="SMF" style="font-size:11px">Morgenthal Frederics Boutiques</div>
+                  <div class="state" id="SCN">California: North</div>
+                  <div class="state" id="SCS">California: South</div>
+                  <div class="state" id="SCO">Colorado</div>
+                  <div class="state" id="SFL">Florida</div>
+                  <div class="state" id="SGA">Georgia</div>
+                  <div class="state" id="SIL">Illinois</div>
+                  <div class="state" id="SMA">Massachusetts</div>
+                  <div class="state" id="SMI">Michigan</div>
+                  <div class="state" id="SNV">Nevada</div>
+                  <div class="state" id="SNJ">New Jersey</div>
+                  <div class="state" id="SNY">New York</div>
+                  <div class="state" id="STX">Texas</div>
+                </div>
+          </div>
+    </div>
+  <div class="nav_box"><div class="nav_but" id="press" style="position:relative"><a href="press.html" target="_blank" style="position:absolute"><img src="img/press.gif" width="120" height="19" border="0" /></a></div></div>
+  <div class="nav_box"><div class="nav_but" id="list"><img src="img/list.gif" width="85" height="9" /></div></div>
+  <div class="nav_box"><div class="nav_but" id="contact_us"><img src="img/contact.gif" width="59" height="9" /></div></div>
+
+  
+  <div class="nav_box"  style="width:29px"><div class="nav_but" id="facebook" style="width:29px"><a href="http://www.facebook.com/MorgenthalFrederics" target="_blank" rel="popup"><img src="img/facebook.jpg" width="29" height="28" border="0" style="margin-top:0px" /></a></div></div>
+</div>
+
+<div id="content"> 
+  </div>
+  <!-- slide show -->
+  <div id="slideshow-container">
+  <img src="sku/KITT.jpg" width="810" height="391" alt="KITT::Morgenthal Frederics Buffalo Horn Collection.<br />Twelve layers of buffalo horn, hand carved in Germany to reveal unique colorations and three dimensional facets." />
+  <img src="sku/KITTY.jpg" width="810" height="391" alt="KITTY::Morgenthal Frederics Buffalo Horn Collection.<br />Twelve layers of buffalo horn, hand carved in Germany to reveal unique colorations and three dimensional facets." />
+  <img src="sku/BIRD.jpg" width="810" height="391" alt="BIRD::Morgenthal Frederics Buffalo Horn Collection.<br />Twelve layers of buffalo horn, hand carved in Germany to reveal unique colorations and three dimensional facets." />
+  
+      <img src="sku/RALPHIE.jpg" width="810" height="391" alt="RALPHIE::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." id="A" />
+      <img src="sku/ELEKTRA.jpg" width="810" height="391" alt="ELEKTRA::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      <img src="sku/MATTHEW.jpg" width="810" height="391" alt="MATTHEW::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      <img src="sku/STEALTH.jpg" width="810" height="391" alt="STEALTH::Morgenthal Frederics Buffalo Horn Collection.<br />Handcrafted titanium fronts from Japan with handmade buffalo horn temples from Germany." />
+      <img src="sku/SPITFIRE.jpg" width="810" height="391" alt="SPITFIRE::Morgenthal Frederics Buffalo Horn Collection.<br />Handcrafted titanium fronts from Japan with handmade buffalo horn temples from Germany." />
+      <img src="sku/SHEIK.jpg" width="810" height="391" alt="SHEIK::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      <img src="sku/MISSY.jpg" width="810" height="391" alt="MISSY::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      <img src="sku/SUPER_AVENGER.jpg" width="810" height="391" alt="SUPER AVENGER::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      <img src="sku/ELEKTRA_2.jpg" width="810" height="391" alt="ELEKTRA::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      <img src="sku/STEPHANIE.jpg" width="810" height="391" alt="STEPHANIE::Morgenthal Frederics Buffalo Horn Collection.<br />Genuine buffalo horn handcrafted in Germany." />
+      
+      <img src="sku/NYMPH.jpg" width="810" height="391" alt="NYMPH::Morgenthal Frederics Butterfly Collection.<br />Handcrafted in Germany, lazer engraved buffalo horn with hand-painted enamel." />
+      <img src="sku/SWALLOWTAIL.jpg" width="810" height="391" alt="SWALLOWTAIL::Morgenthal Frederics Butterfly Collection.<br />Handcrafted in Japan, laser engraved temples." />
+
+      
+      <img src="sku/CHARLIE.jpg" width="810" height="391" alt="CHARLIE::Morgenthal Frederics Royals Collection.<br />Titanium and acetate frame handcrafted in Japan with wood temples handcrafted in Germany." />
+      <img src="sku/KEITH.jpg" width="810" height="391" alt="KEITH::Morgenthal Frederics Royals Collection.<br />Titanium frame handcrafted in Japan with wood temples handcrafted in Germany." />
+      <img src="sku/MICK.jpg" width="810" height="391" alt="MICK::Morgenthal Frederics Royals Collection.<br />Titanium frame handcrafted in Japan with wood temples handcrafted in Germany." />
+      <img src="sku/DUKE.jpg" width="810" height="391" alt="DUKE::Morgenthal Frederics Royals Collection.<br />Titanium and black acetate frame handcrafted in Japan." />
+      <img src="sku/ZIGGY.jpg" width="810" height="391" alt="ZIGGY::Morgenthal Frederics Royals Collection.<br />Titanium and black acetate frame handcrafted in Japan." />
+      
+      <img src="sku/GRAND.jpg" width="810" height="391" alt="GRAND::Morgenthal Frederics Manhattan Collection.<br />Handcrafted in Japan, polarized gradient lenses with deco inspired sterling silver accents." />
+      <img src="sku/ELIZABETH.jpg" width="810" height="391" alt="ELIZABETH::Morgenthal Frederics Manhattan Collection.<br />Handcrafted in Japan, blue marble with deco inspired sterling silver accents and polarized gradient lenses." />
+      
+      <img src="sku/NY187.jpg" width="810" height="391" alt="NY187::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, inspired by <b>Jacqueline Kennedy Onassis.</b>" />
+      <img src="sku/MATT.jpg" width="810" height="391" alt="MATT::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, black to crystal fade." />
+            <img src="sku/MATTHEW_2.jpg" width="810" height="391" alt="MATTHEW::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, tortoise/sky rectangular tapered temples." />
+      <img src="sku/GIO.jpg" width="810" height="391" alt="GIO::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, olive/lemon semi-rimless." />
+      <img src="sku/MISCHA.jpg" width="810" height="391" alt="MISCHA::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in Japan, pearl Blue on a lavender lamination with faceted temples.<br />" />
+      <img src="sku/DAVE.jpg" width="810" height="391" alt="DAVE::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in Japan, solid black with faceted temples." />
+      <img src="sku/DAVE2.jpg" width="810" height="391" alt="DAVE::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in Japan, tortoise/sky with faceted temples." />
+      <img src="sku/WEBSTER.jpg" width="810" height="391" alt="WEBSTER::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, oversized round tortoise frame." />
+      <img src="sku/EPIC.jpg" width="810" height="391" alt="EPIC::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, thick tapered temple, tortoise streak." />
+      <img src="sku/BEA.jpg" width="810" height="391" alt="BEA::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, tortoise streak frame." />
+      <img src="sku/RALPHIE_2.jpg" width="810" height="391" alt="RALPHIE::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in Japan, crystal frame with visible core." />
+            <img src="sku/ARISTA.jpg" width="810" height="391" alt="ARISTA::Morgenthal Frederics Acetate Classic Collection.<br />Handcrafted in France, featuring laminated endpiece with tapered temple." />
+
+      <img src="sku/LIFESAVER2.jpg" width="810" height="391" alt="LIFESAVER::Morgenthal Frederics Lifesaver Collection.<br />Handcrafted in France, open temple tip with pointed bridge." />
+      <img src="sku/LIFESAVER1.jpg" width="810" height="391" alt="LIFESAVER::Morgenthal Frederics Lifesaver Collection.<br />Handcrafted in France, open temple tip with pointed bridge." />
+
+  </div>
+  <!-- end slide show --> 
+  
+    <div id="footer">
+        <div id="footer_box">
+                <div id="captions"></div>
+                  <div id="captions_box">
+                    <div id="slide_thumbnails"></div>
+                  </div>
+                    <div id="slider_box">          
+                        <div id="slider_bg"><img src="img/slider_left.png" width="14" height="14" /></div>
+                        <div id="slider_bg_right"><img src="img/slider_right.png" width="14" height="14" /></div>
+                    
+                        <div id="myElement" class="slider">
+                            <div id="myknob" class="knob"></div>
+                        </div>
+                    </div>       
+        </div>
+    </div>
+ 	<!-- end footer -->
+</div>
+</div>
+
+</body>
+
+
+</html>
