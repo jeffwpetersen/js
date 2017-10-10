@@ -131,6 +131,11 @@ h1.hero {
     );
     padding-top: 15px;
   }
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .double-space {
@@ -275,12 +280,12 @@ ul.menu {
     padding: 0 $margin / 2;
     text-transform: uppercase;
     font-family: "Open Sans";
-    font-weight: 100;
+    font-weight: normal;
     letter-spacing: .1em;
     border-left: solid 1px gray;
     a {
       font-size: 13px !important;
-      font-weight: bold;
+      font-weight: normal;
     }
   }
 }
@@ -370,4 +375,21 @@ ul.menu {
       padding: $base-line-height;
     }
   }
+}
+
+.callout {
+  width: 75%;
+  background: rgba(255, 255, 255, .9);
+  margin: auto;
+  margin-top: $base-line-height;
+  padding: $base-line-height * 2;
+  border: 2px solid;
+  border-radius: 25px;
+  border-color: $gray-5;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+  color: $theme-tint;
+  text-align: center;
+  max-width: 1040px;
 }
