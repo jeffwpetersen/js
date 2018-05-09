@@ -8,7 +8,7 @@
 nav {
   @include container();
   height: $base-line-height;
-  background-color: $gray-2;
+  background-color: $gray-3;
   position: relative;
   z-index: 100;
   min-height: $margin;
@@ -50,12 +50,16 @@ footer {
 .container {
   @include container();
   @include breakpoint($phone) {
+    padding-left: $base-line-height;
+    padding-right: $base-line-height;
+  }
+  @include breakpoint($tween) {
     padding-left: $base-line-height / 2;
     padding-right: $base-line-height / 2;
   }
   @include breakpoint($desktop) {
-    padding-left: $base-line-height;
-    padding-right: $base-line-height;
+    padding-left: $base-line-height / 3;
+    padding-right: $base-line-height / 3;
   }
 }
 
@@ -78,7 +82,7 @@ footer {
   }
   .two-column aside {
     @include span(6 of 18 last);
-    background-color: $theme-tint;
+    background-color: $gray-3;
     margin-top: $margin;
     padding-bottom: 999999px;
     margin-bottom: -999999px;
@@ -136,8 +140,8 @@ footer {
       @include gallery(9 of 18);
     }
     .grid-item:nth-child(3n+3) {
-      width: 100%;
-      clear: both;
+      @include gallery(18 of 18);
+      clear: both !important;
       border-top: solid 1px $pink;
       margin-top: $base-line-height;
       padding-top: $base-line-height;

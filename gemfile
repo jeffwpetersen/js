@@ -3,6 +3,7 @@ ruby RUBY_VERSION
 
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
+gem 'compass-rails', github: 'Compass/compass-rails'
 gem "breakpoint"
 gem "jekyll"
 gem "sass"
@@ -10,5 +11,7 @@ gem "susy"
 gem "rouge"
 gem "jekyll-sitemap"
 gem "jekyll-paginate"
+gem 'normalize-scss'
 # gem "jekyll-gallery-generator"
 # gem 'rmagick'
+

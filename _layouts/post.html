@@ -7,15 +7,16 @@
     {% include header.html %}
     {% include title.html %}
     <div class="container two-column">
-    <aside class="padding-left">
-        <h3 class="white">Blog Posts:</h3>
-        <ul class="blog-menu">
-            {% for post in site.posts %}
-            <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </li>
-            {% endfor %}
-        </ul>
+    <aside>
+        <div class="blog-menu">
+            <ul class="blog-menu">
+                {% for post in site.posts %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </aside>
     <main>
         <section>
