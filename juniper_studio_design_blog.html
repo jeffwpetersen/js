@@ -4,7 +4,7 @@ title: "Blog:"
 permalink: juniper_studio_design_blog.html
 ---
     <ul class="blog-post">
-        {% for post in site.posts %}
+        {% for post in site.categories.posts %}
         <li class="margin-bottom">
             <h2><a href="{{post.url}}">{{post.title}}</a></h2>
             <div class="border-left padding-left">

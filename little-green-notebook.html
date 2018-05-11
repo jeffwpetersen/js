@@ -1,0 +1,17 @@
+---
+layout: lgn
+title: "LGN:"
+permalink: little-green-notebook.html
+---
+<ul class="blog-post">
+    The Little Green Notebook is Juniper Studio's Design blog for the rest of us.
+    {% for post in site.categories.lgn %}
+    <li class="margin-bottom">
+        <h2><a href="{{post.url}}">{{post.title}}</a></h2>
+        <div class="border-left padding-left">
+            {{post.excerpt}}
+        </div>
+        <h4><a href="{{post.url}}">Read this post</a></h4>
+    </li>
+    {% endfor %}
+</ul>
