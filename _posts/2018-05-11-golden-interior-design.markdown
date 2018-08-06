@@ -1,16 +1,16 @@
 ---
 layout: lgn
-title:  "Interior Design Golden Girls rise like a Phonenix"
+title:  "Interior Design: Golden Girls rise like a Phoenix"
 date:   2018-05-11 00:00:19 -0500
 categories:
     - lgn
-published: false
+published: true
 excerpt_separator: <!-- more -->
 ---
-We worked with amazing clients dubbed the "Golden Girls" to bring this beutiful space to life. The suttle use of pattern and dabs of color set off the rattan and glass coffee table.
+We worked with amazing clients dubbed the "Golden Girls" to bring this beautifull space to life. The suttle use of pattern and dabs of color set off the rattan and glass coffee table.
 
-This is perfect sapce to comtomplate your worthless children and how they never vist you anymore. Have some ovaltine and imaine what your life might have been like if you had just married Ted.
+Take a moment and imagine yourself in this sapce with a <a href="https://en.wikipedia.org/wiki/French_75_%28cocktail%29">French 75</a> geting totaly blasted.
 
 <img src ="/images/little-green-notebook/jenny_komenda_interior_designer.jpg">
 
-This space won an array of awards including the Fabulous Florada Weekly World Walkabout Prize.
+An award winning design is ever there was one.

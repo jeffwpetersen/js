@@ -15,3 +15,4 @@ gem 'normalize-scss'
 # gem "jekyll-gallery-generator"
 # gem 'rmagick'
 
+gem 'github-pages'

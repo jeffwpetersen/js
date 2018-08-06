@@ -13,12 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Juniper Studio Rocks
+title: Juniper Studio Home
 email: jeff@juniperstudio.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Juniper Studio Home brings you one of a kind and contract furniture designs. Jeff W. Petersen has been designing and building furniture for over 20 years. Inspired by Danish Modern, Art Deco, Arts & Crafts, Japanese Design and Shaker Furniture. Based in Spring Hill Kansas.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://juniperstudio.com" # the base hostname & protocol for your site, e.g. http://example.com
 
