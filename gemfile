@@ -6,7 +6,6 @@ ruby RUBY_VERSION
 gem 'compass-rails', github: 'Compass/compass-rails'
 gem "breakpoint"
 gem "jekyll"
-gem "sass"
 gem "susy"
 gem "rouge"
 gem "jekyll-sitemap"
@@ -15,4 +14,3 @@ gem 'normalize-scss'
 # gem "jekyll-gallery-generator"
 # gem 'rmagick'
 
-gem 'github-pages'
